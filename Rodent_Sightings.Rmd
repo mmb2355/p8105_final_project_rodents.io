@@ -1,0 +1,53 @@
+---
+title: "Rodent Sightings in NYC"
+author: "Zaid Torres (zt2397),Meghan Brown (mmb2355), Ananya Lahiri (al4125), Karthika Shankar (ks4452)"
+date: "2026-11-12"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Rodent Sightings in NYC from X - X year
+
+### Motivation for Project
+As students who are not native to New York, we have had encounters with rodents. These encounters pose significant health concerns to the residents on the city. Additionally, the city has uppened its efforts to decrease the rodent populations. However, we want to explore if there are any disparities among boroughs and zipcode areas in mitigating rodent prevalence. 
+
+### Intended Final Products and Visualization
+
+#### Home Page:
+Describes the history and issue of rodents in NYC. 
+
+#### Data Page
+Visualization of the issue based on the data. 
+
+Map of New York City across different years with the concentration of rodent complaints. 
+
+Bar chart of complaints per borough.
+
+Box Plot of the complaints by month/season 
+
+Bar chart of zip codes by number of complaints. 
+
+### Anticipated Data Source(s)
+https://data.cityofnewyork.us/Social-Services/Rodent-Complaints-2010-to-Present/ahx2-5kkr/data_preview
+
+NYC Restaurant Inspection Results p8105.datasets package
+
+### Timeline
+
+Data cleaning - November 20th
+Visualization - December 4th
+Conclusion -  December 10
+Homepage - December 10
+
+
+
+
+
+
+ 
+
+
+
