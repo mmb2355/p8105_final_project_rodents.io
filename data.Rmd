@@ -1,0 +1,86 @@
+---
+title: "Rodent Complaint Data"
+author: "Karthika Shankar, Zaid Torres, Meghan Brown, Ananya Lahiri"
+date: "2026-11-20"
+output: html_document
+---
+
+```{r setup, include = FALSE}
+library(tidyverse)
+library(httr)
+```
+
+# Data Import
+
+```{r data_import}
+rodent_df =
+  GET("https://data.cityofnewyork.us/api/v3/views/ahx2-5kkr/query.csv") |>
+  content("parsed")
+```
+
+# Initial Data Inspection
+
+```{r data_inspection}
+str(rodent_df)
+
+skimr::skim(rodent_df)
+```
+
+# Data Cleaning
+
+```{r}
+rodent_df =
+  rodent_df |>
+  janitor::clean_names() |>
+  select(
+    created_date,
+    descriptor,
+    incident_zip,
+    borough,
+    latitude,
+    longitude
+  )
+```
+
+# Checking Variables
+
+```{r}
+skimr::skim(rodent_df)
+
+rodent_df |>
+  group_by(borough) |>
+  summarize(n = n())
+
+rodent_df |>
+  group_by(descriptor) |>
+  summarize(n = n())
+```
+
+```{r}
+rodent_df =
+  rodent_df |>
+  mutate(
+    borough = str_to_title(borough),
+    month = lubridate::floor_date(created_date, unit = "month")
+  )
+```
+
+# Final data check
+
+```{r}
+skimr::skim(rodent_df)
+
+rodent_df |>
+  group_by(borough) |>
+  summarize(n = n())
+
+rodent_df |>
+  group_by(descriptor) |>
+  summarize(n = n())
+
+rodent_df |>
+  summarize(
+    first_month = min(month),
+    last_month = max(month)
+  )
+```
